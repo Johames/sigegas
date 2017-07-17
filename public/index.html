@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Inicio de Sesión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+  <link rel="stylesheet" href="res_login/css/reset.css">
+  <link rel="stylesheet" href="res_login/css/supersized.css">
+  <link rel="stylesheet" href="res_login/css/style.css">
+
+</head>
+
+<body>
+
+  <!-- Formulario de inicio de sesión -->
+  <div class="page-container" id="inicio" style="display: block;">
+    <h1>Inicio de Sesión</h1>
+    <form id="valid" role="form" method="post" action="validar">
+      <input id="usuario" type="text" name="usuario" class="username" placeholder="Usuario" autofocus>
+      <input type="password" name="contrasena" class="password" placeholder="Contraseña">
+      <br>
+      <a onclick="ver()" style="cursor: pointer;" align="left">¿Olvido su Contraseña?</a>
+      <button type="submit" onclick="ir()">Ingresar</button>
+      <div class="error"><span>+</span></div>
+    </form>
+  </div>
+
+  <!-- Formulario para restablecer la contraseña -->
+  <div class="page-container" id="restablecer" style="display: none;">
+    <div class="">
+      <h1>Restablecer Contraseña&nbsp;&nbsp;&nbsp;<span onclick="noVer()" class="cerrar">+</span></h1>
+    </div>
+    <form id="rest" role="form" method="post" action="">
+      <input id="nomRes" type="text" name="nombres" class="username" placeholder="Ingrese su Nombre" autofocus>
+      <input type="text" name="apellidos" class="password" placeholder="Ingrese sus Apellidos">
+      <input type="text" name="dni" class="password" placeholder="Ingrese su DNI">
+      <button type="submit">Restablecer</button>
+      <div class="error"><span>+</span></div>
+    </form>
+  </div>
+
+  <!-- Javascript -->
+  <script src="res_login/js/jquery-1.8.2.min.js"></script>
+  <script src="res_login/js/supersized.3.2.7.min.js"></script>
+  <script src="res_login/js/supersized-init.js"></script>
+  <script src="res_login/js/scripts.js"></script>
+  <script>
+    function ver() {
+      document.getElementById('inicio').style.display = 'none';
+      document.getElementById('restablecer').style.display = 'block';
+      document.getElementById("nomRes").focus();
+      document.getElementById("valid").reset();
+    }
+
+    function noVer() {
+      document.getElementById('restablecer').style.display = 'none';
+      document.getElementById('inicio').style.display = 'block';
+      document.getElementById("usuario").focus();
+      document.getElementById("rest").reset();
+    }
+
+    function ir() {
+      location.href = "inicio.html";
+    }
+  </script>
+</body>
+
+</html>
